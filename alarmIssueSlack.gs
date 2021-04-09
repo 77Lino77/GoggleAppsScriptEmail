@@ -1,5 +1,5 @@
 function alarmSlack() {
-  var salckUrl = "input slack KEy"; // slack test채널의 webhook url
+  var salckUrl = "Input slack Key"; // slack test채널의 webhook url
   
   var ss= SpreadsheetApp.getActiveSpreadsheet().getSheetByName("실시간 테스트 현황판"); // 스프레드 시트 특정 탭에 접근
   
