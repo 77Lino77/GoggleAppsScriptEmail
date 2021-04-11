@@ -1,8 +1,9 @@
 function alarmSlack() {
-  var salckUrl = "Input slack Key"; // slack test채널의 webhook url
+  var salckUrl = "Input your slack-incoming webhook Key"; // slack test채널의 webhook url를 입력하세요.
   
-  var ss= SpreadsheetApp.getActiveSpreadsheet().getSheetByName("실시간 테스트 현황판"); // 스프레드 시트 특정 탭에 접근
+  var ss= SpreadsheetApp.getActiveSpreadsheet().getSheetByName("실시간 테스트 현황판");  // 스프레드 시트 특정 탭에 접근
   
+  // 스프레드 시트의 특정 데이터 가져오기.
   var testrange = ss.getRange("E5");
   var nowTestResult = testrange.getValue();
   
@@ -60,14 +61,15 @@ function alarmSlack() {
   "\n이슈 아님: " + notissueResult +
   "\n확인중 : " +nowCheckingResult+
   "\n새기능 : " +newthingResult+
-  "\n실시간 현황 스프레드 시트 링크 : https://docs.google.com/spreadsheets/d/1Zl0Cb4wTNC1koPXCidR0RERN6ld2mKxGD8jNEKZQqhc/edit#gid=1360797914";
+  "\n실시간 현황 스프레드 시트 링크 : INPUT LINK";
  
   var msg = {"payload" : '{"text" : "' +totalText+'"}'};
+  
   var option ={
     "method" : "post",
     "payload" : msg
   }
   
-  // UrlFetchApp.fetch(salckUrl,option)
-  Logger.log(totalText)
+  UrlFetchApp.fetch(salckUrl,option)
+  
 }
